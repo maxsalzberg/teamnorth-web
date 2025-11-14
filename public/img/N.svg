@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000">
+  <!-- Generator: Adobe Illustrator 29.8.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st1 {
+        fill: none;
+      }
+
+      .st2 {
+        fill: #1b1b1b;
+      }
+
+      .st3 {
+        fill: url(#linear-gradient);
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <polygon class="st1" points="2335.31 2377.84 781 2839.42 664.69 622.17 2219 160.58 2335.31 2377.84"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="3046.2" y1="2547.44" x2="1749.24" y2="1284.95" gradientTransform="translate(.48 2987.11) rotate(.25) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00a0e9"/>
+      <stop offset="1" stop-color="#007db6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="652.19" y1="231.13" x2="2170.49" y2="1749.43" gradientTransform="translate(.48 2987.11) rotate(.25) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".04" stop-color="#bababa"/>
+      <stop offset=".38" stop-color="#bbb"/>
+      <stop offset=".5" stop-color="#c2c2c2"/>
+      <stop offset=".58" stop-color="#cecece"/>
+      <stop offset=".65" stop-color="#dfdfdf"/>
+      <stop offset=".71" stop-color="#f4f4f4"/>
+      <stop offset=".72" stop-color="#f7f7f7"/>
+    </linearGradient>
+  </defs>
+  <g id="_Слой_3">
+    <g class="st4">
+      <g>
+        <polygon class="st3" points="4131.09 1993.13 1538.62 -729.99 448.19 395.28 3040.66 3118.39 4131.09 1993.13"/>
+        <polygon class="st0" points="2990.24 3065.25 397.77 342.14 -775.91 1553.31 1816.56 4276.42 2990.24 3065.25"/>
+      </g>
+    </g>
+  </g>
+  <g id="_Слой_2">
+    <polygon class="st2" points="988 780.5 1751.61 1561.5 1751.61 1047.5 2012 780.5 2011.02 2219.5 1248.39 1434.5 1248.39 1951.5 988 2219.5 988 780.5"/>
+  </g>
+</svg>
