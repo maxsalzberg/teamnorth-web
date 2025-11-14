@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [320, 480, 768, 1024, 1200],
   },
+  reactStrictMode: true,
 };
 
 export default nextConfig;
