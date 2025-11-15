@@ -116,6 +116,7 @@ export default function RootLayout({ children }: { children: any }) {
           name="google-site-verification"
           content="X6MRnsuEE_u1F8YvdtHfSFUVTl7G9qHw4q33rWLnMJk"
         />
+        <meta name="yandex-verification" content="ee468cc4d25c0b20" />
         {/* Discord-specific meta tags for better embed support */}
         <meta property="og:title" content="Team North | Билет в компет" />
         <meta
