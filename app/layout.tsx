@@ -25,7 +25,7 @@ const roboto = Roboto({
 export const metadata = {
   metadataBase: new URL("https://teamnorth.ru"),
   title: {
-    default: "Team North - Тим Норт | Официальный сайт команды",
+    default: "Team North",
     template: "%s | Team North",
   },
   description:
