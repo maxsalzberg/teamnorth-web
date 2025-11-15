@@ -29,7 +29,7 @@ export const metadata = {
     template: "%s | Team North",
   },
   description:
-    "Team North (Тим Норт) - профессиональная киберспортивная команда. Билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
+    "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
   keywords: [
     "тим норт",
     "team north",
@@ -40,6 +40,8 @@ export const metadata = {
     "команда",
     "gaming team",
     "esports",
+    "сквад",
+    "squad",
   ],
   authors: [{ name: "Team North" }],
   creator: "Team North",
@@ -60,9 +62,9 @@ export const metadata = {
     locale: "ru_RU",
     url: "https://teamnorth.ru",
     siteName: "Team North",
-    title: "Team North - Тим Норт | Официальный сайт команды",
+    title: "Team North | Билет в компет",
     description:
-      "Team North (Тим Норт) - профессиональная киберспортивная команда. Билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
+      "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
     images: [
       {
         url: "https://teamnorth.ru/img/roster.png",
@@ -74,9 +76,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Team North - Тим Норт",
+    title: "Team North | Билет в компет",
     description:
-      "Team North (Тим Норт) - профессиональная киберспортивная команда. Билет в компет.",
+      "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
     images: ["https://teamnorth.ru/img/roster.png"],
   },
   alternates: {
@@ -125,7 +127,7 @@ export default function RootLayout({ children }: { children: any }) {
               url: "https://teamnorth.ru",
               logo: "https://teamnorth.ru/N.svg",
               description:
-                "Team North (Тим Норт) - профессиональная киберспортивная команда. Билет в компет.",
+                "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
               sameAs: [
                 "https://discord.gg/cREDhsymBE",
                 "https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575",

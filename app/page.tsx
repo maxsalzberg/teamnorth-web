@@ -56,7 +56,7 @@ export default function Home() {
           </Text>
           <Image
             src="/img/roster.png"
-            alt="Team North Squad - Тим Норт Сквад - Состав команды"
+            alt="Team North - Состав команды"
             width={600}
             height={400}
             style={{
