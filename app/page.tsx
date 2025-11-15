@@ -1,12 +1,132 @@
 "use client";
 import { Container, Text, Button, Stack, Box, Group } from "@mantine/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDiscord,
-  faSteam,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
+import { useEffect, useState, useRef } from "react";
+
+// Lazy load FontAwesome to prevent blocking render
+const SocialIcons = () => {
+  const [icons, setIcons] = useState<{
+    FontAwesomeIcon: any;
+    faDiscord: any;
+    faSteam: any;
+    faYoutube: any;
+  } | null>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Use Intersection Observer to load icons only when footer is visible
+    // This further optimizes by not loading until user scrolls near footer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !shouldLoad) {
+          setShouldLoad(true);
+        }
+      },
+      { rootMargin: "200px" } // Start loading 200px before footer is visible
+    );
+
+    const currentRef = containerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [shouldLoad]);
+
+  useEffect(() => {
+    // Load FontAwesome only when footer is visible or about to be visible
+    if (!shouldLoad) return;
+
+    const loadIcons = async () => {
+      const [{ FontAwesomeIcon }, { faDiscord, faSteam, faYoutube }] =
+        await Promise.all([
+          import("@fortawesome/react-fontawesome"),
+          import("@fortawesome/free-brands-svg-icons"),
+        ]);
+
+      setIcons({ FontAwesomeIcon, faDiscord, faSteam, faYoutube });
+    };
+
+    loadIcons();
+  }, [shouldLoad]);
+
+  if (!icons) {
+    return (
+      <Group
+        ref={containerRef}
+        justify="center"
+        gap="clamp(16px, 3vw, 32px)"
+        style={{ flexWrap: "wrap" }}
+      >
+        {/* Placeholder while loading - invisible but maintains layout */}
+        <div
+          style={{ width: "24px", height: "24px", opacity: 0 }}
+          aria-hidden="true"
+        />
+        <div
+          style={{ width: "24px", height: "24px", opacity: 0 }}
+          aria-hidden="true"
+        />
+        <div
+          style={{ width: "24px", height: "24px", opacity: 0 }}
+          aria-hidden="true"
+        />
+      </Group>
+    );
+  }
+
+  const { FontAwesomeIcon, faDiscord, faSteam, faYoutube } = icons;
+
+  return (
+    <Group
+      justify="center"
+      gap="clamp(16px, 3vw, 32px)"
+      style={{ flexWrap: "wrap" }}
+    >
+      <a
+        href="https://discord.gg/cREDhsymBE"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Team North Discord"
+      >
+        <FontAwesomeIcon
+          icon={faDiscord}
+          style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
+          color="#ffffff"
+        />
+      </a>
+      <a
+        href="https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Team North Steam"
+      >
+        <FontAwesomeIcon
+          icon={faSteam}
+          style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
+          color="#ffffff"
+        />
+      </a>
+      <a
+        href="https://youtube.com/watch?v=PU8o9R-Vrfc"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Team North YouTube"
+      >
+        <FontAwesomeIcon
+          icon={faYoutube}
+          style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
+          color="#ffffff"
+        />
+      </a>
+    </Group>
+  );
+};
 
 export default function Home() {
   return (
@@ -114,48 +234,7 @@ export default function Home() {
             <Text c="#ffffff" style={{ fontSize: "clamp(10px, 1.5vw, 14px)" }}>
               © 2025 Team North. Все фобы сожжены.
             </Text>
-            <Group
-              justify="center"
-              gap="clamp(16px, 3vw, 32px)"
-              style={{ flexWrap: "wrap" }}
-            >
-              <a
-                href="https://discord.gg/cREDhsymBE"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Team North Discord"
-              >
-                <FontAwesomeIcon
-                  icon={faDiscord}
-                  style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
-                  color="#ffffff"
-                />
-              </a>
-              <a
-                href="https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Team North Steam"
-              >
-                <FontAwesomeIcon
-                  icon={faSteam}
-                  style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
-                  color="#ffffff"
-                />
-              </a>
-              <a
-                href="https://youtube.com/watch?v=PU8o9R-Vrfc"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Team North YouTube"
-              >
-                <FontAwesomeIcon
-                  icon={faYoutube}
-                  style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
-                  color="#ffffff"
-                />
-              </a>
-            </Group>
+            <SocialIcons />
           </Stack>
         </Container>
       </Box>
