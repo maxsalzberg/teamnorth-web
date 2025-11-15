@@ -67,7 +67,7 @@ export const metadata = {
       "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
     images: [
       {
-        url: "https://teamnorth.ru/img/roster.png?v=2",
+        url: "https://teamnorth.ru/img/roster.png?v=3",
         width: 1200,
         height: 630,
         alt: "Team North Roster",
@@ -79,7 +79,7 @@ export const metadata = {
     title: "Team North | Билет в компет",
     description:
       "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
-    images: ["https://teamnorth.ru/img/roster.png?v=2"],
+    images: ["https://teamnorth.ru/img/roster.png?v=3"],
   },
   alternates: {
     canonical: "https://teamnorth.ru",
@@ -116,6 +116,23 @@ export default function RootLayout({ children }: { children: any }) {
           name="google-site-verification"
           content="X6MRnsuEE_u1F8YvdtHfSFUVTl7G9qHw4q33rWLnMJk"
         />
+        {/* Discord-specific meta tags for better embed support */}
+        <meta property="og:title" content="Team North | Билет в компет" />
+        <meta
+          property="og:description"
+          content="Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира."
+        />
+        <meta
+          property="og:image"
+          content="https://teamnorth.ru/img/roster.png?v=3"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Team North Roster" />
+        <meta property="og:url" content="https://teamnorth.ru" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Team North" />
+        <meta property="og:locale" content="ru_RU" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
