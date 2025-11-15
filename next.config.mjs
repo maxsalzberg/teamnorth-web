@@ -5,6 +5,12 @@ const nextConfig = {
     deviceSizes: [320, 480, 768, 1024, 1200],
   },
   reactStrictMode: true,
+  compress: true,
+  poweredByHeader: false,
+  swcMinify: true,
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;

@@ -1,14 +1,17 @@
 "use client";
 import { Container, Text, Button, Stack, Box, Group } from "@mantine/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-
-library.add(fab);
+import {
+  faDiscord,
+  faSteam,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <Box
+      component="main"
       style={{
         background: "linear-gradient(135deg, #0a0f1f 0%, #003a78 100%)",
         minHeight: "100vh",
@@ -38,6 +41,7 @@ export default function Home() {
           style={{ width: "100%", maxWidth: "100%" }}
         >
           <Text
+            component="h1"
             fw={700}
             style={{
               fontSize: "clamp(32px, 8vw, 82px)",
@@ -50,9 +54,11 @@ export default function Home() {
           >
             Team North
           </Text>
-          <img
+          <Image
             src="/img/roster.png"
-            alt="Roster"
+            alt="Team North Squad - Тим Норт Сквад - Состав команды"
+            width={600}
+            height={400}
             style={{
               width: "100%",
               maxWidth: "min(600px, 90vw)",
@@ -60,8 +66,10 @@ export default function Home() {
               borderRadius: 12,
               objectFit: "contain",
             }}
+            priority
           />
           <Text
+            component="p"
             style={{
               fontSize: "clamp(14px, 2vw, 20px)",
               color: "#ffffff",
@@ -104,7 +112,7 @@ export default function Home() {
         <Container size="lg">
           <Stack align="center" gap="sm">
             <Text c="#ffffff" style={{ fontSize: "clamp(10px, 1.5vw, 14px)" }}>
-              © 2025 Team North. Все права защищены.
+              © 2025 Team North. Все фобы сожжены.
             </Text>
             <Group
               justify="center"
@@ -115,9 +123,10 @@ export default function Home() {
                 href="https://discord.gg/cREDhsymBE"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Team North Discord"
               >
                 <FontAwesomeIcon
-                  icon={["fab", "discord"]}
+                  icon={faDiscord}
                   style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
                   color="#ffffff"
                 />
@@ -126,9 +135,10 @@ export default function Home() {
                 href="https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Team North Steam"
               >
                 <FontAwesomeIcon
-                  icon={["fab", "steam"]}
+                  icon={faSteam}
                   style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
                   color="#ffffff"
                 />
@@ -137,9 +147,10 @@ export default function Home() {
                 href="https://youtube.com/watch?v=PU8o9R-Vrfc"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Team North YouTube"
               >
                 <FontAwesomeIcon
-                  icon={["fab", "youtube"]}
+                  icon={faYoutube}
                   style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
                   color="#ffffff"
                 />
