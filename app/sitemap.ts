@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://teamnorth.ru",
       lastModified: new Date(),
-      changeFrequency: "always",
+      changeFrequency: "weekly",
       priority: 1,
     },
   ];
