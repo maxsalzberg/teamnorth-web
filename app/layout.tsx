@@ -67,7 +67,7 @@ export const metadata = {
       "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
     images: [
       {
-        url: "https://teamnorth.ru/img/roster.png",
+        url: "https://teamnorth.ru/img/roster.png?v=2",
         width: 1200,
         height: 630,
         alt: "Team North Roster",
@@ -79,7 +79,7 @@ export const metadata = {
     title: "Team North | Билет в компет",
     description:
       "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
-    images: ["https://teamnorth.ru/img/roster.png"],
+    images: ["https://teamnorth.ru/img/roster.png?v=2"],
   },
   alternates: {
     canonical: "https://teamnorth.ru",
