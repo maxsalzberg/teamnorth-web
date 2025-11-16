@@ -23,7 +23,7 @@ export const metadata = {
     template: "%s | Team North",
   },
   description:
-    "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
+    "Team North (Тим Норт) - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
   keywords: [
     "тим норт",
     "team north",
@@ -100,6 +100,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           content="X6MRnsuEE_u1F8YvdtHfSFUVTl7G9qHw4q33rWLnMJk"
         />
         <meta name="yandex-verification" content="ee468cc4d25c0b20" />
+        <meta
+          name="keywords"
+          content="тим норт, team north, тим норт сквад, team north squad, киберспорт, компьютерные игры, команда, gaming team, esports, сквад, squad"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -107,11 +111,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Team North",
-              alternateName: "Тим Норт",
+              alternateName: ["Тим Норт", "Team North Squad", "Тим Норт Сквад"],
               url: "https://teamnorth.ru",
               logo: "https://teamnorth.ru/N.svg",
               description:
-                "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
+                "Team North (Тим Норт) - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
               sameAs: [
                 "https://discord.gg/cREDhsymBE",
                 "https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575",
