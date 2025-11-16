@@ -8,7 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: [],
       },
-      // Специальные правила для Yandex
       {
         userAgent: "Yandex",
         allow: "/",

@@ -1,10 +1,9 @@
 "use client";
 import { Container, Text, Button, Stack, Box, Group } from "@mantine/core";
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, memo } from "react";
 
-// Lazy load FontAwesome to prevent blocking render
-const SocialIcons = () => {
+const SocialIcons = memo(() => {
   const [icons, setIcons] = useState<{
     FontAwesomeIcon: any;
     faDiscord: any;
@@ -15,15 +14,13 @@ const SocialIcons = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Use Intersection Observer to load icons only when footer is visible
-    // This further optimizes by not loading until user scrolls near footer
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !shouldLoad) {
           setShouldLoad(true);
         }
       },
-      { rootMargin: "200px" } // Start loading 200px before footer is visible
+      { rootMargin: "200px" }
     );
 
     const currentRef = containerRef.current;
@@ -39,7 +36,6 @@ const SocialIcons = () => {
   }, [shouldLoad]);
 
   useEffect(() => {
-    // Load FontAwesome only when footer is visible or about to be visible
     if (!shouldLoad) return;
 
     const loadIcons = async () => {
@@ -63,7 +59,6 @@ const SocialIcons = () => {
         gap="clamp(16px, 3vw, 32px)"
         style={{ flexWrap: "wrap" }}
       >
-        {/* Placeholder while loading - invisible but maintains layout */}
         <div
           style={{ width: "24px", height: "24px", opacity: 0 }}
           aria-hidden="true"
@@ -126,7 +121,9 @@ const SocialIcons = () => {
       </a>
     </Group>
   );
-};
+});
+
+SocialIcons.displayName = "SocialIcons";
 
 export default function Home() {
   return (
@@ -187,6 +184,8 @@ export default function Home() {
               objectFit: "contain",
             }}
             priority
+            loading="eager"
+            fetchPriority="high"
           />
           <Text
             component="p"

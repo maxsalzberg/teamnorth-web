@@ -1,25 +1,19 @@
 import "@mantine/core/styles.css";
-import React from "react";
 import {
   MantineProvider,
   ColorSchemeScript,
   mantineHtmlProps,
 } from "@mantine/core";
-import { Inter, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import { theme } from "../theme";
+import type { ReactNode } from "react";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
   variable: "--font-inter",
-});
-
-const roboto = Roboto({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "700"],
-  display: "swap",
-  variable: "--font-roboto",
+  preload: true,
 });
 
 export const metadata = {
@@ -86,26 +80,15 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: any }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="ru"
-      {...mantineHtmlProps}
-      className={`${inter.variable} ${roboto.variable}`}
-    >
+    <html lang="ru" {...mantineHtmlProps} className={inter.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         <link rel="preconnect" href="https://discord.com" />
         <link rel="preconnect" href="https://steamcommunity.com" />
         <link rel="preconnect" href="https://youtube.com" />
         <ColorSchemeScript />
         <link rel="shortcut icon" href="/N.svg" />
-        <link rel="canonical" href="https://teamnorth.ru" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
@@ -117,23 +100,6 @@ export default function RootLayout({ children }: { children: any }) {
           content="X6MRnsuEE_u1F8YvdtHfSFUVTl7G9qHw4q33rWLnMJk"
         />
         <meta name="yandex-verification" content="ee468cc4d25c0b20" />
-        {/* Discord-specific meta tags for better embed support */}
-        <meta property="og:title" content="Team North | Билет в компет" />
-        <meta
-          property="og:description"
-          content="Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира."
-        />
-        <meta
-          property="og:image"
-          content="https://teamnorth.ru/img/roster.png?v=3"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Team North Roster" />
-        <meta property="og:url" content="https://teamnorth.ru" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Team North" />
-        <meta property="og:locale" content="ru_RU" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
