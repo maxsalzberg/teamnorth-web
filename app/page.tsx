@@ -1,14 +1,134 @@
 "use client";
 import { Container, Text, Button, Stack, Box, Group } from "@mantine/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
+import { useEffect, useState, useRef, memo } from "react";
 
-library.add(fab);
+const SocialIcons = memo(() => {
+  const [icons, setIcons] = useState<{
+    FontAwesomeIcon: any;
+    faDiscord: any;
+    faSteam: any;
+    faYoutube: any;
+  } | null>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !shouldLoad) {
+          setShouldLoad(true);
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    const currentRef = containerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [shouldLoad]);
+
+  useEffect(() => {
+    if (!shouldLoad) return;
+
+    const loadIcons = async () => {
+      const [{ FontAwesomeIcon }, { faDiscord, faSteam, faYoutube }] =
+        await Promise.all([
+          import("@fortawesome/react-fontawesome"),
+          import("@fortawesome/free-brands-svg-icons"),
+        ]);
+
+      setIcons({ FontAwesomeIcon, faDiscord, faSteam, faYoutube });
+    };
+
+    loadIcons();
+  }, [shouldLoad]);
+
+  if (!icons) {
+    return (
+      <Group
+        ref={containerRef}
+        justify="center"
+        gap="clamp(16px, 3vw, 32px)"
+        style={{ flexWrap: "wrap" }}
+      >
+        <div
+          style={{ width: "24px", height: "24px", opacity: 0 }}
+          aria-hidden="true"
+        />
+        <div
+          style={{ width: "24px", height: "24px", opacity: 0 }}
+          aria-hidden="true"
+        />
+        <div
+          style={{ width: "24px", height: "24px", opacity: 0 }}
+          aria-hidden="true"
+        />
+      </Group>
+    );
+  }
+
+  const { FontAwesomeIcon, faDiscord, faSteam, faYoutube } = icons;
+
+  return (
+    <Group
+      justify="center"
+      gap="clamp(16px, 3vw, 32px)"
+      style={{ flexWrap: "wrap" }}
+    >
+      <a
+        href="https://discord.gg/cREDhsymBE"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Team North Discord"
+      >
+        <FontAwesomeIcon
+          icon={faDiscord}
+          style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
+          color="#ffffff"
+        />
+      </a>
+      <a
+        href="https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Team North Steam"
+      >
+        <FontAwesomeIcon
+          icon={faSteam}
+          style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
+          color="#ffffff"
+        />
+      </a>
+      <a
+        href="https://youtube.com/watch?v=PU8o9R-Vrfc"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Team North YouTube"
+      >
+        <FontAwesomeIcon
+          icon={faYoutube}
+          style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
+          color="#ffffff"
+        />
+      </a>
+    </Group>
+  );
+});
+
+SocialIcons.displayName = "SocialIcons";
 
 export default function Home() {
   return (
     <Box
+      component="main"
       style={{
         background: "linear-gradient(135deg, #0a0f1f 0%, #003a78 100%)",
         minHeight: "100vh",
@@ -38,6 +158,7 @@ export default function Home() {
           style={{ width: "100%", maxWidth: "100%" }}
         >
           <Text
+            component="h1"
             fw={700}
             style={{
               fontSize: "clamp(32px, 8vw, 82px)",
@@ -50,9 +171,11 @@ export default function Home() {
           >
             Team North
           </Text>
-          <img
+          <Image
             src="/img/roster.png"
-            alt="Roster"
+            alt="Team North - Состав команды"
+            width={600}
+            height={400}
             style={{
               width: "100%",
               maxWidth: "min(600px, 90vw)",
@@ -60,8 +183,12 @@ export default function Home() {
               borderRadius: 12,
               objectFit: "contain",
             }}
+            priority
+            loading="eager"
+            fetchPriority="high"
           />
           <Text
+            component="p"
             style={{
               fontSize: "clamp(14px, 2vw, 20px)",
               color: "#ffffff",
@@ -104,47 +231,9 @@ export default function Home() {
         <Container size="lg">
           <Stack align="center" gap="sm">
             <Text c="#ffffff" style={{ fontSize: "clamp(10px, 1.5vw, 14px)" }}>
-              © 2025 Team North. Все права защищены.
+              © 2025 Team North. Все фобы сожжены.
             </Text>
-            <Group
-              justify="center"
-              gap="clamp(16px, 3vw, 32px)"
-              style={{ flexWrap: "wrap" }}
-            >
-              <a
-                href="https://discord.gg/cREDhsymBE"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "discord"]}
-                  style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
-                  color="#ffffff"
-                />
-              </a>
-              <a
-                href="https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "steam"]}
-                  style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
-                  color="#ffffff"
-                />
-              </a>
-              <a
-                href="https://youtube.com/watch?v=PU8o9R-Vrfc"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "youtube"]}
-                  style={{ fontSize: "clamp(18px, 3vw, 24px)" }}
-                  color="#ffffff"
-                />
-              </a>
-            </Group>
+            <SocialIcons />
           </Stack>
         </Container>
       </Box>
