@@ -79,7 +79,10 @@ export const metadata = {
     canonical: "https://teamnorth.ru",
   },
   icons: {
-    icon: [{ url: "/N.svg?v=2", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.ico", type: "image/svg+xml" },
+      { url: "/N.svg?v=2", type: "image/svg+xml" },
+    ],
     apple: [{ url: "/N.svg?v=2", type: "image/svg+xml" }],
   },
 };
@@ -92,8 +95,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://steamcommunity.com" />
         <link rel="preconnect" href="https://youtube.com" />
         <ColorSchemeScript />
-        <link rel="icon" type="image/svg+xml" href="/N.svg?v=2" />
-        <link rel="apple-touch-icon" href="/N.svg?v=2" />
+        <link
+          rel="icon"
+          href="https://teamnorth.ru/favicon.ico"
+          type="image/svg+xml"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://teamnorth.ru/favicon.ico"
+          type="image/svg+xml"
+        />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="https://teamnorth.ru/N.svg?v=2"
+        />
+        <link rel="apple-touch-icon" href="https://teamnorth.ru/N.svg?v=2" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
