@@ -111,6 +111,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://teamnorth.ru/N.svg?v=2"
         />
         <link rel="apple-touch-icon" href="https://teamnorth.ru/N.svg?v=2" />
+        <link
+          rel="sitemap"
+          type="application/xml"
+          href="https://teamnorth.ru/sitemap.xml"
+        />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
