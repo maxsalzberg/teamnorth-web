@@ -132,7 +132,6 @@ export default function Home() {
       style={{
         background: "linear-gradient(135deg, #0a0f1f 0%, #003a78 100%)",
         minHeight: "100vh",
-        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -149,7 +148,7 @@ export default function Home() {
           alignItems: "center",
           textAlign: "center",
           padding: "clamp(20px, 5vh, 80px) 16px",
-          overflow: "auto",
+          overflow: "hidden",
         }}
       >
         <Stack
