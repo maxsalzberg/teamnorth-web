@@ -78,6 +78,10 @@ export const metadata = {
   alternates: {
     canonical: "https://teamnorth.ru",
   },
+  icons: {
+    icon: [{ url: "/N.svg?v=2", type: "image/svg+xml" }],
+    apple: [{ url: "/N.svg?v=2", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -88,7 +92,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://steamcommunity.com" />
         <link rel="preconnect" href="https://youtube.com" />
         <ColorSchemeScript />
-        <link rel="shortcut icon" href="/N.svg" />
+        <link rel="icon" type="image/svg+xml" href="/N.svg?v=2" />
+        <link rel="apple-touch-icon" href="/N.svg?v=2" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
@@ -109,7 +114,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               name: "Team North",
               alternateName: "Тим Норт",
               url: "https://teamnorth.ru",
-              logo: "https://teamnorth.ru/N.svg",
+              logo: "https://teamnorth.ru/N.svg?v=2",
               description:
                 "Team North - это твой билет в компет. Присоединяйся к команде, которая уже 7 лет воспитывает таланты со всего мира.",
               sameAs: [
