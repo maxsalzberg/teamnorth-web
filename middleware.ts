@@ -2,10 +2,13 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // Force HTTPS redirect
+  const hostname = request.nextUrl.hostname;
+  const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1" || hostname.startsWith("192.168.") || hostname.startsWith("10.");
+
   if (
     request.nextUrl.protocol === "http:" &&
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === "production" &&
+    !isLocalhost
   ) {
     const httpsUrl = request.nextUrl.clone();
     httpsUrl.protocol = "https:";
@@ -22,8 +25,9 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  // Ensure HTTPS is set in headers
-  response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  if (process.env.NODE_ENV === "production" && !isLocalhost) {
+    response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  }
 
   return response;
 }
