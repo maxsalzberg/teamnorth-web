@@ -116,6 +116,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/xml"
           href="https://teamnorth.ru/sitemap.xml"
         />
+        <link rel="canonical" href="https://teamnorth.ru" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
