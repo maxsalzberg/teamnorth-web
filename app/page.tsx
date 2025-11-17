@@ -126,12 +126,38 @@ const SocialIcons = memo(() => {
 SocialIcons.displayName = "SocialIcons";
 
 export default function Home() {
+  useEffect(() => {
+    const updateAppHeight = () => {
+      const viewportHeight =
+        window.visualViewport?.height ?? window.innerHeight ?? 0;
+      document.documentElement.style.setProperty(
+        "--app-height",
+        `${viewportHeight}px`
+      );
+    };
+
+    updateAppHeight();
+
+    window.addEventListener("resize", updateAppHeight);
+    window.addEventListener("orientationchange", updateAppHeight);
+    window.visualViewport?.addEventListener("resize", updateAppHeight);
+
+    return () => {
+      window.removeEventListener("resize", updateAppHeight);
+      window.removeEventListener("orientationchange", updateAppHeight);
+      window.visualViewport?.removeEventListener("resize", updateAppHeight);
+    };
+  }, []);
+
+  const appHeight = "var(--app-height, 100vh)";
+
   return (
     <Box
       component="main"
       style={{
         background: "linear-gradient(135deg, #0a0f1f 0%, #003a78 100%)",
-        minHeight: "100vh",
+        minHeight: appHeight,
+        height: appHeight,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
