@@ -14,7 +14,10 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [],
       },
     ],
-    sitemap: "https://teamnorth.ru/sitemap.xml",
+    sitemap: [
+      "https://teamnorth.ru/sitemap.xml",
+      "https://www.teamnorth.ru/sitemap.xml",
+    ],
   };
 }
 
