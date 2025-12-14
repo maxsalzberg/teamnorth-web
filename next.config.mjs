@@ -1,5 +1,7 @@
 const nextConfig = {
+  output: 'export', // Включает статический экспорт
   images: {
+    unoptimized: true, // Обязательно для статического экспорта
     formats: ["image/avif", "image/webp"],
     deviceSizes: [320, 480, 768, 1024, 1200],
     minimumCacheTTL: 31536000,
